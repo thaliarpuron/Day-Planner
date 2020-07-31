@@ -14,77 +14,62 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <title>Work Day Scheduler</title>
 
-  <style>
-    
-    .past {
-      background: "grey"
-    }
-
-    .current {
-      background: red;
-    }
-
-    .future {
-      background: green;
-    }
-  </style>
-
 </head>
 
 <body>
   <header class="jumbotron">
-    <h1 class="display-3">Work Day Scheduler</h1>
-    <p class="lead">A simple calendar app for scheduling your work day</p>
-    <p id="currentDay" class="lead"></p>
+    <h2>My Work Day Schedule</h2>
+    <p id="currentDay" class="hour" class="lead" ></p>
+    <hr/>
   </header>
   <div class="container">
 
     <!-- Timeblocks go here -->
     <ul>
       <li>
-        <span >9 AM</span>
-        <input type="text" id="9am" />
-        <button time="#9am">Save</button>
+        <span class="color-white">9 AM</span>
+        <input class="time-block" type="text" id="9am" />
+        <button class="saveBtn" time="#9am">Save</button>
       </li>
       <li>
-        <span>10 AM</span>
-        <input type="text" id="10am" />
-        <button time="#10am">Save</button>
+        <span class="color-white">10 AM</span>
+        <input class="time-block" type="text" id="10am" />
+        <button class="saveBtn" time="#10am">Save</button>
       </li>
       <li>
-        <span>11 AM</span>
-        <input type="text" id="11am" />
-        <button time="#11am">Save</button>
+        <span class="color-white">11 AM</span>
+        <input class="time-block" type="text" id="11am" />
+        <button class="saveBtn" time="#11am">Save</button>
       </li>
       <li>
-        <span>12 PM</span>
-        <input type="text" id="12pm" />
-        <button time="#12pm">Save</button>
+        <span class="color-white">12 PM</span>
+        <input class="time-block" type="text" id="12pm" />
+        <button class="saveBtn" time="#12pm">Save</button>
       </li>
       <li>
-        <span>1 PM</span>
-        <input type="text" id="1pm" />
-        <button time="#1pm">Save</button>
+        <span class="color-white">1 PM</span>
+        <input class="time-block" type="text" id="1pm" />
+        <button class="saveBtn" time="#1pm">Save</button>
       </li>
       <li>
-        <span>2 PM</span>
-        <input type="text" id="2pm" />
-        <button time="#2pm">Save</button>
+        <span class="color-white">2 PM</span>
+        <input class="time-block" type="text" id="2pm" />
+        <button class="saveBtn" time="#2pm">Save</button>
       </li>
       <li>
-        <span>3 PM</span>
-        <input type="text" id="3pm" />
-        <button time="#3pm">Save</button>
+        <span class="color-white">3 PM</span>
+        <input class="time-block" type="text" id="3pm" />
+        <button class="saveBtn" time="#3pm">Save</button>
       </li>
       <li>
-        <span>4 PM</span>
-        <input type="text" id="4pm" />
-        <button time="#4pm">Save</button>
+        <span class="color-white">4 PM</span>
+        <input class="time-block"type="text" id="4pm" />
+        <button class="saveBtn" time="#4pm">Save</button>
       </li>
       <li>
-        <span>5 PM</span>
-        <input type="text" id="5pm" myTime="5" class="5" />
-        <button time="#5pm">Save</button>
+        <span class="color-white">5 PM</span>
+        <input class="time-block" type="text" id="5pm" />
+        <button class="saveBtn" time="#5pm">Save</button>
       </li>
     </ul>
   </div>
@@ -139,9 +124,7 @@
       $("#5pm").val(fivePm);
     }
 
-    
     for (var i = 9; i <= 17; i++) {
-      // Get the current hour
 
       var amPm = "am";
       if (i >= 12) {
@@ -153,16 +136,21 @@
       }
 
       var targetId = "#" + hour + amPm;
+      var today = new Date();
+      var currentHour = today.getHours();
 
-      var className = "future";
-      // If currentTime > i => class future
-      // else if currentTime < i class past
-      // else class current
-
-      $(targetId).addClass(className);
-
-
+      var classMoment = "future";
+      if (currentHour < i) {
+        classMoment = "future";
+      } else if (currentHour > i) {
+        classMoment = "past";
+      } else {
+        classMoment = "present";
+      }
+      $(targetId).addClass(classMoment);
     }
+
+
 
 
 
