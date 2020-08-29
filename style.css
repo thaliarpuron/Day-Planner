@@ -2,7 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   line-height: 2;
-  background-color: #ffffff;
+  background-color: salmon;
 }
 
 textarea{
@@ -78,14 +78,16 @@ ul{
 
 .container {
 text-align: center;
-background-color: lightsalmon;
-padding: 40px;
 border-radius: 15px;
 }
 
 .color-white{
   color: white;
-  
+}
+
+#currentDay{
+  background-color: salmon;
+  color: white;
 }
 
 
